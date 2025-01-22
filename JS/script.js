@@ -4,6 +4,9 @@ function getEmails() {
     // Vado a selezionare <ul> tramite il suo id
     const emailList = document.getElementById("email-list");
 
+    // Assegno una stringa vuota per pulire il contenuto dentro l'elemento <ul>
+    emailList.innerHTML = "";
+
     // Array per memorizzare tutte le email
     const emails = [];
 
@@ -53,6 +56,12 @@ function getEmails() {
     }
 
 }
+
+// Aggiungo l'evento click al bottone, fa un refresh degli elementi contenuti in <ul>
+const button = document.querySelector("button");
+
+// Evento del <button>
+button.addEventListener("click", getEmails);
 
 // Chiamata alla funzione per ottenere le email
 getEmails();
