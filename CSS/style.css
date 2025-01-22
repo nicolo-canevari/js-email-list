@@ -9,7 +9,7 @@
 /* REGOLE GENERALI */
 body {
 
-    font-family: Arial, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
@@ -28,13 +28,13 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: lightslategray;
 
 }
 
 /* Titolo */
 h1 {
 
+    font-family:'Times New Roman', Times, serif;
     font-size: 35;
     margin-bottom: 20px;
     color: black;
@@ -58,6 +58,7 @@ h1 {
     font-size: 14px;
     color: black;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s;
 
 }
 
@@ -66,5 +67,27 @@ h1 {
 
     background-color: orange;
     cursor: pointer;
+
+}
+
+/* Bottone */
+button {
+
+    padding: 10px 20px;
+    background-color: rgb(11, 117, 238);
+    color: white;
+    transition: background-color 0.3s;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+/* Effetto hover su <button> */
+button:hover {
+
+    background-color: rgb(8, 93, 185);
 
 }
