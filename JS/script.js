@@ -3,6 +3,7 @@ function getEmails() {
 
     // Vado a selezionare <ul> tramite il suo id
     const emailList = document.getElementById("email-list");
+
     // Array per memorizzare tutte le email
     const emails = [];
 
@@ -24,17 +25,19 @@ function getEmails() {
 
                 // Creo un elemento di lista (li) per ogni email dove poterle stampare
                 const listItem = document.createElement("li");
+
                 // Imposto il testo di questo nuovo elemento in modo che contenga l'email ottenuta
-                listItem.textContent = email;
+                listItem.innerHTML = email;
+
                 // Aggiungo questo nuovo elemento di lista all'elemento <ul>, in modo che venga visualizzato sulla pagina
                 emailList.appendChild(listItem);
 
                 // Dopo aver raccolto tutte le email (dopo le 10 iterazioni) eseguo il debug
                 if (emails.length === 10) {
 
-                    // Debugging
-                    console.table(emails); 
-                    
+                    // Debugging (stampo in console)
+                    console.table(emails);
+
                 }
 
             })
