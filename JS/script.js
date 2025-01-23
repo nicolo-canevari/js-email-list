@@ -4,16 +4,16 @@ function getEmails() {
     // Vado a selezionare <ul> tramite il suo id
     const emailList = document.getElementById("email-list");
 
-    // Assegno una stringa vuota per pulire il contenuto dentro l'elemento <ul>
+    // Svuoto il contenuto dentro l'elemento <ul> così da evitare l'accumulo di dati quando avviene la funzione
     emailList.innerHTML = "";
 
     // Array per memorizzare tutte le email
     const emails = [];
 
-    // Eseguo 10 richieste ognuna delle quali genererà un email
+    // Eseguo 10 iterazioni ognuna delle quali genererà un email
     for (let i = 0; i < 10; i++) {
 
-        // Chiamata di tipo GET all'API di Boolean
+        // Chiamata di tipo GET all'API di Boolean che restituisce una mail casuale
         axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
 
             // Funzione di callback che viene eseguita quando la richiesta ha successo (quando riceviamo una risposta dal server)
@@ -23,25 +23,30 @@ function getEmails() {
                 // Estraggo l'email dalla risposta, l'oggetto JSON restituito dall'API
                 const email = response.data.response;
 
-                // Push dell'email all'array
+                // Push dell'email all'array (emails)
                 emails.push(email);
 
-                // Creo un elemento di lista (li) per ogni email dove poterle stampare
-                const listItem = document.createElement("li");
+                // Imposto il ritardo di 0.5 secondi tra l'inserimento delle email 
+                setTimeout(function () {
 
-                // Imposto il testo di questo nuovo elemento in modo che contenga l'email ottenuta
-                listItem.innerHTML = email;
+                    // Creo un elemento di lista (li) per ogni email dove poterle stampare
+                    const listItem = document.createElement("li");
 
-                // Aggiungo questo nuovo elemento di lista all'elemento <ul>, in modo che venga visualizzato sulla pagina
-                emailList.appendChild(listItem);
+                    // Imposto il testo di questo nuovo elemento in modo che contenga l'email ottenuta
+                    listItem.innerHTML = email;
 
-                // Dopo aver raccolto tutte le email (dopo le 10 iterazioni) eseguo il debug
-                if (emails.length === 10) {
+                    // Aggiungo questo nuovo elemento di lista all'elemento <ul>, in modo che venga visualizzato sulla pagina
+                    emailList.appendChild(listItem);
 
-                    // Debugging (stampo in console)
-                    console.table(emails);
+                    // Dopo aver raccolto tutte le email (dopo le 10 iterazioni) eseguo il debug
+                    if (emails.length === 10) {
 
-                }
+                        // Debugging (stampo in console)
+                        console.table(emails);
+
+                    }
+
+                }, i * 500); 
 
             })
 
