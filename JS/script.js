@@ -27,6 +27,7 @@ function getEmails() {
                 emails.push(email);
 
                 // Imposto il ritardo di 0.5 secondi tra l'inserimento delle email 
+                // (NON FUNZIONA PERCHE' STA DENTRO IL THEN E QUINDI C'E' GIA' UN RITARDO DATP DALLA ASINCRONICITA')
                 setTimeout(function () {
 
                     // Creo un elemento di lista (li) per ogni email dove poterle stampare
